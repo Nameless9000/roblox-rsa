@@ -59,11 +59,11 @@ func main() {
 	// start server
 	r := http.NewServeMux()
 
-    r.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
-        userId := r.Header.Get("CM2-User")
-		
+	r.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
+		userId := r.Header.Get("CM2-User")
+
 		fmt.Fprint(w, userId)
-    })
-	
+	})
+
 	http.ListenAndServe(":8000", VerifyAuthentication(r))
 }
